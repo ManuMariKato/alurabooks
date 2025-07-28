@@ -1,0 +1,148 @@
+.cabecalho{
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /*Libera outras opções de posições, como top, left, right...*/
+}
+.container{
+    display: flex;
+    align-items: center;
+}
+.menu_botoes{
+    display: flex;
+    align-items: center;
+
+}
+.cabecalho__menu-hamburguer{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url("../img/Menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+.contain__botao:checked ~.container__rotulo > .cabecalho__menu-hamburguer { /*O sinal de maior procura algo que está dentro dele*/
+    background-image: url("../img/Menu Aberto.svg");
+}
+.contain__botao:checked ~.container__rotulo{
+    background: var(--azul-degrade);
+    padding-top: 0.8em;
+}
+.container__imagem{
+    padding: 1em;
+}
+.lista-menu{
+    display: none;
+    position: absolute;/*Permite que você movimente seu elemento de acordo com o pai, sendo diferente de 'static'*/
+    top: 100%;
+    width: 60vw;
+}
+.contain__botao{ 
+    display: none;
+}
+.contain__botao:checked ~.lista-menu{/*o '~' é um combinador CSS, procura um outro elemento que vem em seguida do elemento citado antes (tipo uma condicional)*/
+    display: block;
+}
+.lista-menu__titulo, 
+.lista-menu__item{
+    padding: 1rem;
+    background-color: var(--branco);
+
+}
+.lista-menu__titulo{
+    color: var(--cor-primaria);
+    font-family: var(--fonte-principal) ;
+    font-weight: 700;
+}
+.lista-menu__link{
+    color: var(--azul-degrade);
+    background-clip: text;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family:var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 500;
+    /*-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
+}
+.container__titulo{
+    display: none;
+}
+.opcoes{
+    display: none;
+}
+.container__texto{
+    display: none;
+}
+@media screen and (min-width: 1024px){
+    .container__titulo, .container__titulo-negrito{
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+    }
+    .container__titulo{
+        font-weight: 400;
+        display: block;
+    }
+    .container__titulo-negrito{
+        font-weight: 700;
+    }
+    .opcoes{
+        display: flex;
+    }
+    .opcoes__item{
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+    .opcoes__link{
+        text-decoration: none;
+        color:var(--preto);
+    }
+    .opcoes__link:hover{
+        color: var(--cor-primaria);
+    }
+    .imagem__transparente{
+        display: none;
+    }
+    .cabecalho__menu-hamburguer{
+        display: none;
+    }
+    .opcoes__botao:checked ~.lista-menu{
+        display: block;
+        width: auto;
+    }
+    .opcoes__botao{
+        display: none;
+    }
+    .opcoes__botao:checked ~.opcoes__rotulo > .opcoes__item{
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+    .opcoes__item{
+        padding: 2em 1em;
+    }
+    .lista-menu__item:hover{
+        background: var(--azul-degrade);
+        color:var(--branco);
+    }
+}
+@media screen and (min-width:1728px){
+    .cabecalho{
+        padding: 0 2em;
+    }
+    .container__link{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+        margin-right: 1em;
+    }
+    .opcoes{
+        margin-right: auto;
+    }
+    .container__texto{
+        display: block;
+    }
+
+}
